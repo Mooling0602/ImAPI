@@ -84,7 +84,7 @@ class MatrixDriver(BaseDriver):
                 await client.sync(timeout=30000)
                 client.add_event_callback(message_callback, RoomMessageText)
                 self.logger.info("Creating receiver task...")
-                self.receiver = asyncio.create_task(client.sync_forever(timeout=30000))
+                self.receiver = asyncio.create_task(client.sync_forever(timeout=0))
                 try:
                     await self.receiver
                 except asyncio.CancelledError:
