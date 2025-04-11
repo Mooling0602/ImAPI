@@ -59,7 +59,7 @@ class MatrixDriver(BaseDriver):
             # text messages support.
             async def message_callback(room: MatrixRoom, event: RoomMessageText) -> None:
                 if event.sender != self.user_id:
-                    self.logger.debug(f"Message preview: [{room.display_name}] <{room.user_name(event.sender)}> {event.body}")
+                    self.logger.debug(f"Matrix RoomMessageText event preview: [{room.display_name}] <{room.user_name(event.sender)}> {event.body}")
                     message = Message(
                         id=event.event_id,
                         content=event.body,
